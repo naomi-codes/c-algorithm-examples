@@ -14,7 +14,6 @@
 #include <stdbool.h>
 
 #include "pyramid_helpers.h"
-
 #define BUFSIZE 4096
 
 static int quiet = false;
@@ -303,8 +302,8 @@ void pyramid_input(int board[])
          /* Invert the entered in peg. */
          board[peg_num] = !board[peg_num];
       }
-   }
 
+   }
    /*
     * At this point, they have entered in their desired board,
     * so we return.
