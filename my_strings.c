@@ -133,7 +133,7 @@ int main_strings()
    }
 
    printf("Combine strings: '%s' and '%s'.\n", ab, b);
-   insert(ab, b, 5);
+   insert(b, ab, length(ab));
    printf("Result is: '%s'.\n", ab);
    return 0;
 }
