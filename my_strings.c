@@ -1,9 +1,8 @@
 /*
  *
- * STUDENT_ID: 2425693
+ * File: my_strings.c
+ * Author: naomi lambert
  *
- * ADDITIONAL COMMENTS (if any): Please note: program only works within constraints given in the outline i.e.
- * strings of length longer than those hard coded into main_strings may cause undefined behaviour
  *
  */
 
@@ -112,8 +111,6 @@ bool search(const char s1[], const char s2[])
  * main_strings:  This is the entry point to your strings test.
  *                Samples have been provided.
  *
- * Pretend this is the main() function as you are use to writing,
- * i.e. the function where your program logic begins and terminates.
  */
 int main_strings()
 {

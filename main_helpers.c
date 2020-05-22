@@ -1,8 +1,7 @@
 /*
  * main_helpers.c
  *
- *  Created on: 22 May 2020
- *      Author: zee
+ *      Author: naomi lambert
  */
 #include <stdio.h>
 #include <stdlib.h>

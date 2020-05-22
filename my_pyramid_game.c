@@ -1,6 +1,7 @@
 /*
  *
- * STUDENT_ID: 2425693
+ * File: my_pyramid_game.c
+ * Author: naomi lambert
  *
  * COMMENTS (if any): I never thought I would say, "Hooray, recursion!"
  */
@@ -135,6 +136,9 @@ int solve(int board[]) {
 	return 0;
 }
 
+/**
+ *
+ */
 int is_legal_move(struct PossibleMove move, int board[]) {
 	int s, t, u;
 	if (((s = board[move.from]) == 1) && ((t = board[move.over]) == 1) && ((u = board[move.to]) == 0))
@@ -143,6 +147,9 @@ int is_legal_move(struct PossibleMove move, int board[]) {
 	return 0;
 }
 
+/**
+ * num_of_pegs: return the number of pegs currently on the board
+ */
 int num_of_pegs(int board[]) {
 	int temp, count = 0;
 
@@ -153,12 +160,24 @@ int num_of_pegs(int board[]) {
 	return count;
 }
 
+
+/**
+ * make_move: moves a peg on the board
+ */
 void make_move(int board[], struct PossibleMove move) {
 	board[move.from] = !board[move.from];
 	board[move.over] = !board[move.over];
 	board[move.to] = !board[move.to];
 }
 
+/**
+ *  undo_move: used to undo a made move on the pyramid board
+ *
+ *   Parameters:
+ *        board - the board on which to do the operation
+ *        move - a structure which represents the movement of a peg
+ *
+ */
 void undo_move(int board[], struct PossibleMove move) {
 	board[move.from] = !board[move.from];
 	board[move.over] = !board[move.over];
@@ -166,14 +185,20 @@ void undo_move(int board[], struct PossibleMove move) {
 }
 
 /*
- * main_pyramid:  This is the entry point to your pyramid game implementation.
+ * main_pyramid:  responsible for running the pyramid game
+ * prints the initila board and prompts for user input to
+ * play the game.
  *
- * Pretend this is the main() function as you are use to writing,
- * i.e. the function where your program logic begins and terminates.
+ *  Parameters:
+ *        source - an integer indicating whether the game is being run with
+ *        user input or file input.
+ *
  */
 
-int main_pyramid() {
+int main_pyramid(int source) {
+	bool still_playing = true;
 
+	while (still_playing) {
 		int board[15];
 
 		pyramid_input(board);
@@ -186,8 +211,20 @@ int main_pyramid() {
 		if (result == 0){
 			printf("\nThis board is unsolvable!");
 		} else {
-			printf("Solved!");
+			printf("\nSolved!\n");
 		}
 
+		freopen("/dev/tty", "r", stdin);
+
+		if (source != 3) {
+			if (!(continue_playing("Do you want to play again? (Y/N)"))) {
+				still_playing = false;
+				break;
+			}
+		}  else {
+			still_playing = false;
+			break;
+		}
+	}
 	return 0;
 }
