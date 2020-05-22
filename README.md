@@ -19,7 +19,7 @@ Run the program by entering
 ```
 ./pyramid_game
 ```
-![screenshot of running pyramid game](admin/images)
+![screenshot of running pyramid game](admin/images/running_pyramid_game.png)
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
