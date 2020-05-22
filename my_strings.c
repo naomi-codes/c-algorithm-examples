@@ -117,7 +117,7 @@ bool search(const char s1[], const char s2[])
  */
 int main_strings()
 {
-   printf("Length of \"Hello!\" is %d.\n", length("Hello!"));
+   printf("\nLength of \"Hello!\" is %d.\n", length("Hello!"));
 
    char str[MAX_STR + 1] = "Hello!";
    printf("The reverse of %s", str);
@@ -135,6 +135,7 @@ int main_strings()
    printf("Combine strings: '%s' and '%s'.\n", ab, b);
    insert(ab, b, 5);
    printf("Result is: '%s'.\n", ab);
+
    return 0;
 }
 

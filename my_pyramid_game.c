@@ -172,15 +172,21 @@ void undo_move(int board[], struct PossibleMove move) {
  */
 
 int main_pyramid() {
-	int board[15];
 
-	pyramid_input(board);
+		int board[15];
 
-	printf("Here is the board you entered:\n");
-	pyramid_print(board);
+		pyramid_input(board);
 
-	int result = solve(board);
-	printf("Result:  %d", result);
+		printf("Here is the board you entered:\n");
+		pyramid_print(board);
+
+		int result = solve(board);
+
+		if (result == 0){
+			printf("\nThis board is unsolvable!");
+		} else {
+			printf("Solved!");
+		}
 
 	return 0;
 }

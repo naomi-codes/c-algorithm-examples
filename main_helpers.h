@@ -21,7 +21,7 @@ extern "C" {
  *                The array will contain the board upon completion.
  */
 
-char get_choice(const char *prompt);
+int get_choice(const char *prompt);
 
 #include<stdbool.h>
 #ifdef __cplusplus

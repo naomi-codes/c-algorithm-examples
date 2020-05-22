@@ -46,6 +46,7 @@ void pyramid_print(const int board[]);
 
 void pyramid_input(int board[]);
 
+
 #ifdef __cplusplus
 }
 #endif

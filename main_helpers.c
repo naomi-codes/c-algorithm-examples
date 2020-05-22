@@ -11,12 +11,12 @@
 #include <ctype.h>
 #include <stdbool.h>
 
-#include <main_helpers.h>
+#include "main_helpers.h"
 
 #define BUFSIZE 4096
 
-const char FUNCTIONS[4] = {'s', 'f', 'p', 'q'};
-const int VALID_FUNCTIONS = 4;
+const char FUNCTIONS[3] = {'1', '2', '3'};
+const int VALID_FUNCTIONS = 3;
 
 /*
  * get_pegnum:  Reads a peg number from the user, prompting them with
@@ -37,11 +37,11 @@ const int VALID_FUNCTIONS = 4;
  *
  */
 
-char get_choice(const char *prompt)
+int get_choice(const char *prompt)
 {
 	char buffer[BUFSIZE];
 	int got_input = 0;
-	char game_choice;
+	int game_choice = -1;;
 
 	/* Loop until we get something valid from the user. */
 	while (!got_input) {
@@ -58,6 +58,7 @@ char get_choice(const char *prompt)
 					"Exiting program.\n");
 			exit(1);
 		} else {
+
 			/* We successfully read in a line of input. */
 			int start;
 			int len;
@@ -93,9 +94,13 @@ char get_choice(const char *prompt)
 				continue;
 			}
 
-			if (strlen(buffer) != 1) {
-				printf("\nYou must enter either one of s, p or f. ");
-				printf("or q to quit.\n");
+			/* Check if they said "q". */
+			if (buffer[start] == 'q')
+			{
+				got_input = 1;
+				game_choice = -1; /* This is how we tell our caller the user
+				 * said "end".
+				 */
 			} else {
 
 				int is_number = 1; /* true until proven false */
@@ -117,23 +122,24 @@ char get_choice(const char *prompt)
 					}
 				}
 
-				if (is_number) {
-					printf("\nYou must enter either one of s, p or f. ");
-					printf("or q to quit.\n");
+				if (!is_number) {
+					printf("\nYou must enter either one of 1, 2 or 3 ");
+					printf("or enter q to quit.\n");
 				} else {
+					game_choice = atoi(buffer + start);
 
-					game_choice = buffer[0];
-
-					bool match = false;
-					for (int i = 0; i < VALID_FUNCTIONS; i++) {
-						if (game_choice == FUNCTIONS[i])
-							match = true;
+					int match = 0;
+					for (int i = 1; i <= 3; i++) {
+						if (game_choice == i) {
+							match = 1;
+						}
 					}
 
-					if (match)
+					if (match == 1) {
 						got_input = 1;
+					}
 				} /* from else clause of if (!is_number) */
-			} /* from else clause of strlen(buffer != 1) */
+			} /* from else clause of if (buffer[start] == 'q' */
 		} /* from else clause of if (fgets(...) == NULL) */
 	} /* from while(!got_input) */
 
