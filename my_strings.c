@@ -11,10 +11,18 @@
 
 #define MAX_STR 20
 
-int length(const char s[])
+/*
+ * length: Returns the length of a string.
+ *
+ * Parameters:
+ *      string[] - string
+ *
+ * Returns: length of string string[].
+ */
+int length(const char string[])
 {
     int count = 0;
-    const char *p = s;
+    const char *p = string;
 
     if ( p != NULL) {
     while (*(p+count) != '\0'){
@@ -25,21 +33,45 @@ int length(const char s[])
 }
 
 
-void reverse(char s[])
+/*
+ * reverse: Reverses a string s. For example, if outputting s
+ *          produces "Hello" before the function, then outputting
+ *          s after the function produces "olleH".
+ *
+ * Parameters:
+ *      string[] - string
+ *
+ * Modifies: string[] so that the original string is stored in reverse order.
+ */
+
+void reverse(char string[])
 {
-    int len = length(s), j = len - 1, i = 0;
+    int len = length(string), j = len - 1, i = 0;
     char temp;
 
     while ( i < j) {
-        temp = s[i];
-        s[i] = s[j];
-        s[j] = temp;
+        temp = string[i];
+        string[i] = string[j];
+        string[j] = temp;
         i++;
         j--;
     }
 }
 
 
+/*
+ * insert: Inserts s2 into s1 at the nth character of s1. The size
+ *         of s1[] array is assumed to be large enough to store s1 + s2.
+ *         For an n == 0, s2 precedes s1. For n >= length-of-s1, s2 follows s1.
+ *
+ * Parameters:
+ *      s1[] - string
+ *      s2[] - string
+ *      n    - integer
+ *
+ * Modifies: s1[] so that it contains the original s1, additionally
+ *           with s2 inserted at the nth location in s1.
+ */
 void insert(char s1[], const char s2[], int n)
 {
     /* insert s2 into s1 immediately following the nth character
@@ -75,6 +107,17 @@ void insert(char s1[], const char s2[], int n)
 }
 
 
+/*
+ * search: Determines if string s2 appears as a substring in s1.
+ *
+ * Parameters:
+ *      s1[] - string
+ *      s2[] - string
+ *
+ * Returns:
+ *      true  - if s2 is in s1;
+ *      false - otherwise.
+ */
 bool search(const char s1[], const char s2[])
 {
     int len_s2 = length(s2);
@@ -108,7 +151,7 @@ bool search(const char s1[], const char s2[])
 
 
 /*
- * main_strings:  This is the entry point to your strings test.
+ * main_strings:  This is the entry point to the strings test.
  *                Samples have been provided.
  *
  */

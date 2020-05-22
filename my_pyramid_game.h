@@ -16,7 +16,6 @@ extern "C" {
 
 
 /*
- * THIS FUNCTION WILL BE CALLED DURING TEST ASSESSMENTS.
  *
  * solve: This is the game 'engine', in which the logic is based.
  *        It takes a board in any valid state, and determines

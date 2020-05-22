@@ -18,21 +18,15 @@ const char FUNCTIONS[3] = {'1', '2', '3'};
 const int VALID_FUNCTIONS = 3;
 
 /*
- * get_pegnum:  Reads a peg number from the user, prompting them with
- *              the given prompt.
- *
- *              This function is fairly complex. No need to worry if it's
- *              difficult to understand.
- *
- *              "static" indicates that this function is only
- *              available in this file.
+ * get_choice:  Reads in the game choice for the user to select which function to
+ * 				demonstrate
  *
  * Parameters:
  *       prompt  -  A string prompt presented to the user.
  *
  * Returns:
- *       -1    -  if the user entered "end"
- *       0..14 -  if the user entered a valid peg number
+ *       -1    -  if the user entered q
+ *       1..3  -  if the user entered 1 2 or 3
  *
  */
 

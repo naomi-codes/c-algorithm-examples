@@ -3,7 +3,6 @@
  * File: my_pyramid_game.c
  * Author: naomi lambert
  *
- * COMMENTS (if any): I never thought I would say, "Hooray, recursion!"
  */
 
 #include "my_pyramid_game.h"
@@ -137,7 +136,12 @@ int solve(int board[]) {
 }
 
 /**
+ * is_legal_move: determines whether the next proposed move is
+ * 					legal on the board the program is currently trying to solve
  *
+ * 	Parameters:
+ * 		move - the proposed movement of pegs
+ * 		board - the state of the board when the move is proposed
  */
 int is_legal_move(struct PossibleMove move, int board[]) {
 	int s, t, u;
@@ -149,6 +153,9 @@ int is_legal_move(struct PossibleMove move, int board[]) {
 
 /**
  * num_of_pegs: return the number of pegs currently on the board
+ *
+ * Parameters:
+ * 		board - the current board setup
  */
 int num_of_pegs(int board[]) {
 	int temp, count = 0;

@@ -46,6 +46,14 @@ void pyramid_print(const int board[]);
 
 void pyramid_input(int board[]);
 
+
+/**
+ * continue_playing: Takes a user response and determines whether or not the user
+ * 						wants to play again
+ *
+ * Parameters:
+ * 		prompt* - The prompt to show the user
+ */
 bool continue_playing(const char *prompt);
 
 
