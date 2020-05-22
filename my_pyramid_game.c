@@ -92,7 +92,7 @@ int solve(int board[]) {
 
 	/** base case is when there is only one peg left on the board*/
 	if (no_of_pegs == 1) {
-		printf("Here is the winning board:\n");
+		printf("Here is are the winning moves in reverse order:\n");
 		pyramid_print(board); // Print the winning board
 		return 1;
 	} else {
@@ -115,8 +115,9 @@ int solve(int board[]) {
 				 * board as a parameter
 				 */
 				if ((is_solvable = solve(board))) {
-					pyramid_print(board);
+
 					undo_move(board, move);
+					pyramid_print(board);
 					return 1;
 				}
 				undo_move(board, move);

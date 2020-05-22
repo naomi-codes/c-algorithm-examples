@@ -94,7 +94,7 @@ bool search(const char s1[], const char s2[])
             i++;
         }
 
-        for (k = 0; i < len_s2; k++){
+        for (k = 0; k < len_s2; k++){
             if (temp[k] != s2[k]){
                 match = false;
             }
